@@ -3,41 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshRenderer))]
 public class softBodyGenerator : MonoBehaviour
 {
     [SerializeField] private bool debugMode = false;
     [SerializeField] private bool gravity = true;
 
 
-    [SerializeField] private int numOfBorderPoints = 3;
+    [SerializeField] private int numOfBorderPoints = 24;
 
-    [SerializeField] private float radius;
+    [SerializeField] private float radius = 8;
 
-    [SerializeField] private float centerMass;
-    [SerializeField] private float borderMass;
+    [SerializeField] private float centerMass = 1;
+    [SerializeField] private float borderMass = 0.1f;
 
-    [SerializeField] private float borderSpringsForce;
-    [SerializeField] private float borderSpringsDamp;
+    [SerializeField] private float borderSpringsForce = 12;
+    [SerializeField] private float borderSpringsDamp = 12;
 
-    [SerializeField] private float radialSpringsFoce;
-    [SerializeField] private float radialSpringsDamp;
+    [SerializeField] private float radialSpringsFoce = 12;
+    [SerializeField] private float radialSpringsDamp = 12;
 
     [SerializeField] private Mesh pointMesh;
 
     [SerializeField] private bool doubleSkin = true;
 
-    [SerializeField] private float radius2;
-    [SerializeField] private float border2Mass;
+    [SerializeField] private float radius2 = 2;
+    [SerializeField] private float border2Mass = 0.1f;
 
-    [SerializeField] private float border2SpringsForce;
-    [SerializeField] private float border2SpringsDamp;
+    [SerializeField] private float border2SpringsForce = 4;
+    [SerializeField] private float border2SpringsDamp = 4;
 
-    [SerializeField] private float radial2SpringsForce;
-    [SerializeField] private float radial2SpringsDamp;
+    [SerializeField] private float radial2SpringsForce = 12;
+    [SerializeField] private float radial2SpringsDamp = 12;
 
 
-    [SerializeField] private float border2ToBorder1SpringForce;
-    [SerializeField] private float border2ToBorder1SpringDamp;
+    [SerializeField] private float border2ToBorder1SpringForce = 4;
+    [SerializeField] private float border2ToBorder1SpringDamp = 4;
 
 
     private GameObject pointPrototipe;
@@ -53,7 +55,7 @@ public class softBodyGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Create prototype
+        //Create point prototype
 
         pointPrototipe = new GameObject();
 
